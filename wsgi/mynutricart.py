@@ -9,24 +9,15 @@ def hello():
 
 @app.route("/calcs",methods = ["POST"])
 def calcs():
-	# Open database connection
-	db = MySQLdb.connect(environ['OPENSHIFT_MYSQL_DB_HOST'], environ['OPENSHIFT_MYSQL_DB_USERNAME'], environ['OPENSHIFT_MYSQL_DB_PASSWORD'], 'krowdvision')
-
-	# prepare a cursor object using cursor() method
-	cursor = db.cursor()
-
-	# execute SQL query using execute() method.
-	cursor.execute("SELECT * from CaloriesToPortions;")
-
-	# Fetch a single row using fetchone() method.
-	data = cursor.fetchone()
-
-	print "Database version : %s " % data
-		
-	# disconnect from server
-	db.close()	
-	return "Hello World!
+    try:
+        db = MySQLdb.connect(environ['OPENSHIFT_MYSQL_DB_HOST'], environ['OPENSHIFT_MYSQL_DB_USERNAME'], environ['OPENSHIFT_MYSQL_DB_PASSWORD'], 'mynutricart')
+        db.query("SELECT * FROM CaloriesToPortions")
+    except MySQLdb.Error, e:
+        return "Error %d: %s" % (e.args[0], e.args[1])
+    finally:
+        if db:
+            db.close()
+    return "success"
 
 if __name__ == "__main__":
     app.run()
-
