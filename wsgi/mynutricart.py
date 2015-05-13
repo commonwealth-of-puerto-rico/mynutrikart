@@ -30,14 +30,14 @@ def calcs():
     
     for k,v in enumerate(data):
         query = query + "Calories = " + str(data[v]) + " OR "
-    # try:
-    #     db = MySQLdb.connect(environ['OPENSHIFT_MYSQL_DB_HOST'], environ['OPENSHIFT_MYSQL_DB_USERNAME'], environ['OPENSHIFT_MYSQL_DB_PASSWORD'], 'mynutricart')
-    #     db.query(query[:-3])
-    # except MySQLdb.Error, e:
-    #     return "Error %d: %s" % (e.args[0], e.args[1])
-    # finally:
-    #     if db:
-    #         db.close()
+    try:
+        db = MySQLdb.connect(environ['OPENSHIFT_MYSQL_DB_HOST'], environ['OPENSHIFT_MYSQL_DB_USERNAME'], environ['OPENSHIFT_MYSQL_DB_PASSWORD'], 'mynutricart')
+        db.query(query[:-3])
+    except MySQLdb.Error, e:
+        return "Error %d: %s" % (e.args[0], e.args[1])
+    finally:
+        if db:
+            db.close()
     return query[:-3]
 
 if __name__ == "__main__":
