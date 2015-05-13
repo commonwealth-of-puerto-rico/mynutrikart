@@ -1,0 +1,127 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>MyNutriCart</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+        <link rel="stylesheet" href="css/flat-ui.min.css">
+        <link rel="stylesheet" href="css/jasny-bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+    <nav class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+        <a class="navmenu-brand" href="#main-menu">MyNutriCart</a>
+        <ul class="nav navmenu-nav">
+            <li><a href="#profiles">Family Profile</a></li>
+            <li><a href="#shopping-list">Shopping List</a></li>
+            <li class="divider"></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </nav>
+
+    <div id="views-list">
+        <div id="main-menu" class="view container">
+            <h1>Family Profile</h1>
+
+          <hr>
+
+        </div> <!-- /main menu container -->
+
+        <div id="profiles" class="view container">
+            <h1>Family Profile</h1>
+
+            <hr>
+
+            <div class="well">
+                <form role="form" id="family-defaults">
+                    <div class="form-group">
+                        <label for="familySize">Family Name</label>
+                        <input type="text" class="form-control" id="familyName" placeholder="My Family">
+                    </div>
+                    <div class="form-group">
+                        <label for="familySize">Family Size</label>
+                        <input type="text" class="form-control" id="familySize" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="shoppingFrecuency">How often do you usually go grocery shopping?</label>
+                        <select class="form-control" name="shoppingFrecuency">
+                            <option value="7" selected>Weekly</option>
+                            <option value="14">Semi-monthly</option>
+                            <option value="30">Monthly</option>
+                        </select>
+                        <p class="help-block">We will use this value by default. You can change this when creating a new shopping list.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="shoppingBudget">What is your usual grocery $ budget?</label>
+                        <input type="text" class="form-control" id="shoppingBudget" placeholder="100.00">
+                        <p class="help-block">We will use this value by default. You can change this when creating a new shopping list.</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary save_button">Save Changes</button>
+                </form>
+            </div>
+
+
+        </div> <!-- /profiles container -->
+
+        <div id="shopping-list" class="view container">
+            <h1>Shopping List</h1>
+
+            <hr>
+
+        </div> <!-- /shopping list container -->
+
+        <div id="about" class="view container">
+            <h1>About</h1>
+
+            <hr>
+
+            <footer>
+                <p>&copy; MyNutriCart 2015</p>
+            </footer>
+        </div> <!-- /about container -->
+     </div>
+
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/jquery.mustache.js"></script>
+        <script src="js/vendor/flat-ui.min.js"></script>
+        <script src="js/vendor/jasny-bootstrap.min.js"></script>
+        <script src="js/vendor/mustache.min.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!--<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>-->
+    </body>
+</html>
