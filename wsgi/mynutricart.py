@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello():
     return "Hello World!"
 
-@app.route("/calcs",methods = ["POST"])
+@app.route("/calcs",methods = ["POST","GET"])
 def calcs():
     try:
         db = MySQLdb.connect(environ['OPENSHIFT_MYSQL_DB_HOST'], environ['OPENSHIFT_MYSQL_DB_USERNAME'], environ['OPENSHIFT_MYSQL_DB_PASSWORD'], 'mynutricart')
