@@ -29,14 +29,14 @@ def calcs():
     query = "SELECT SUM(Grains), SUM(Vegetables), SUM(Fruit), SUM(Diary), SUM(Protein) FROM CaloriesToPortions WHERE "      
     for k,v in enumerate(data):
         query = query + "Calories = " + str(data[v]) + " OR "
-    # try:
-    #     db = MySQLdb.connect(environ['OPENSHIFT_MYSQL_DB_HOST'], environ['OPENSHIFT_MYSQL_DB_USERNAME'], environ['OPENSHIFT_MYSQL_DB_PASSWORD'], 'mynutricart')
-    #     db.query("SELECT * FROM CaloriesToPortions")
-    # except MySQLdb.Error, e:
-    #     return "Error %d: %s" % (e.args[0], e.args[1])
-    # finally:
-    #     if db:
-    #         db.close()
+    try:
+        db = MySQLdb.connect(environ['OPENSHIFT_MYSQL_DB_HOST'], environ['OPENSHIFT_MYSQL_DB_USERNAME'], environ['OPENSHIFT_MYSQL_DB_PASSWORD'], 'mynutricart')
+        db.query("SELECT * FROM CaloriesToPortions")
+    except MySQLdb.Error, e:
+        return "Error %d: %s" % (e.args[0], e.args[1])
+    finally:
+        if db:
+            db.close()
     return "Success"
 
 if __name__ == "__main__":
