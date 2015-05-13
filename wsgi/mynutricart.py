@@ -26,7 +26,7 @@ def calcs():
     for k,v in enumerate(data):
         data[v] = cal_floor(data[v])
 
-    query = "SELECT SUM(Grains),SUM(Vegetables),SUM(Fruit),SUM(Diary),SUM(Protein) FROM CaloriesToPortions WHERE "   
+    query = "SELECT SUM(Grains), SUM(Vegetables), SUM(Fruit), SUM(Diary), SUM(Protein) FROM CaloriesToPortions WHERE "      
     for k,v in enumerate(data):
         query = query + "Calories = " + str(data[v]) + " OR "
     # try:
