@@ -30,7 +30,7 @@
             <li><a href="#profiles">Family Profile</a></li>
             <li><a href="#shopping-list">Shopping List</a></li>
             <li class="divider"></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </nav>
 
@@ -42,9 +42,9 @@
         </button>
     </nav>
 
-    <div id="views-list">
-        <div id="main-menu" class="view container">
-            <h1>Family Profile</h1>
+    <div id="views-list" class="container">
+        <div id="main-menu" class="active view container">
+            <h1>Main Menu</h1>
 
           <hr>
 
@@ -53,37 +53,252 @@
         <div id="profiles" class="view container">
             <h1>Family Profile</h1>
 
-            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                    <hr>
+                    <h2 class="hidden">Family Defaults</h2>
+                    <form role="form" id="update-family-defaults">
+                        <div class="form-group">
+                            <label for="familySize">Family Name</label>
+                            <input type="text" class="form-control" id="familyName" placeholder="My Family">
+                        </div>
+                        <div class="form-group">
+                            <label for="familySize">Family Size</label>
+                            <input type="text" class="form-control" id="familySize" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>How often do you usually go grocery shopping?</label>
+                            <select class="form-control" name="shoppingFrecuency">
+                                <option value="7" selected>Weekly</option>
+                                <option value="14">Semi-monthly</option>
+                                <option value="30">Monthly</option>
+                            </select>
+                            <p class="help-block">We will use this value by default. You can change this when creating a new shopping list.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="shoppingBudget">What is your usual grocery $ budget?</label>
+                            <input type="text" class="form-control" id="shoppingBudget" placeholder="100.00">
+                            <p class="help-block">We will use this value by default. You can change this when creating a new shopping list.</p>
+                        </div>
 
-            <div class="well">
-                <form role="form" id="family-defaults">
-                    <div class="form-group">
-                        <label for="familySize">Family Name</label>
-                        <input type="text" class="form-control" id="familyName" placeholder="My Family">
-                    </div>
-                    <div class="form-group">
-                        <label for="familySize">Family Size</label>
-                        <input type="text" class="form-control" id="familySize" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="shoppingFrecuency">How often do you usually go grocery shopping?</label>
-                        <select class="form-control" name="shoppingFrecuency">
-                            <option value="7" selected>Weekly</option>
-                            <option value="14">Semi-monthly</option>
-                            <option value="30">Monthly</option>
-                        </select>
-                        <p class="help-block">We will use this value by default. You can change this when creating a new shopping list.</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="shoppingBudget">What is your usual grocery $ budget?</label>
-                        <input type="text" class="form-control" id="shoppingBudget" placeholder="100.00">
-                        <p class="help-block">We will use this value by default. You can change this when creating a new shopping list.</p>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary save_button">Save Changes</button>
-                </form>
+                        <button type="submit" class="btn btn-primary btn-block save_button">Save Changes</button>
+                    </form>
+                </div>
+                <div class="col-md-8">
+                    <hr>
+                    <h2 class="hidden">Family Group</h2>
+                        <form role="form" id="update-family-members">
+                            <ul id="family-list" class="list-group">
+                            <li id="1" class="family-member list-group-item">
+                                <h3 class="h6 member-name">{{Name}}</h3>
+                                <!--<p><label>Gender</label> <span class="member-gender"></span></p>
+                                <p><label>Age</label> <span class="member-age"></span></p>
+                                <p><label>Weight</label> <span class="member-weight"></span></p>
+                                <p><label>Height</label> <span class="member-height"></span></p>
+                                <p><label>BMI</label> <span class="member-bmi"></span></p>
+                                <p><label>Daily Calories</label> <span class="member-calories"></span></p>-->
+                                <div class="form-group">
+                                    <label for="memberName">Name</label>
+                                    <input type="text" class="form-control" id="memberName" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select class="form-control" name="memberGender">
+                                        <option value="" selected></option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberAge">Age</label>
+                                    <input type="text" class="form-control" id="memberAge" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberWeight">Weight</label>
+                                    <input type="text" class="form-control" id="memberWeight" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberHeight">Height</label>
+                                    <input type="text" class="form-control" id="memberHeight" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberBMI">BMI</label>
+                                    <input type="text" class="form-control" id="memberBMI" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberCalories">Daily Calories</label>
+                                    <input type="text" class="form-control" id="memberCalories" placeholder="">
+                                </div>
+                            </li>
+                            <li id="2" class="family-member list-group-item">
+                                <h3 class="h6 member-name">{{Name}}</h3>
+                                <!--<p><label>Gender</label> <span class="member-gender"></span></p>
+                                <p><label>Age</label> <span class="member-age"></span></p>
+                                <p><label>Weight</label> <span class="member-weight"></span></p>
+                                <p><label>Height</label> <span class="member-height"></span></p>
+                                <p><label>BMI</label> <span class="member-bmi"></span></p>
+                                <p><label>Daily Calories</label> <span class="member-calories"></span></p>-->
+                                <div class="form-group">
+                                    <label for="memberName">Name</label>
+                                    <input type="text" class="form-control" id="memberName" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select class="form-control" name="memberGender">
+                                        <option value="" selected></option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberAge">Age</label>
+                                    <input type="text" class="form-control" id="memberAge" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberWeight">Weight</label>
+                                    <input type="text" class="form-control" id="memberWeight" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberHeight">Height</label>
+                                    <input type="text" class="form-control" id="memberHeight" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberBMI">BMI</label>
+                                    <input type="text" class="form-control" id="memberBMI" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberCalories">Daily Calories</label>
+                                    <input type="text" class="form-control" id="memberCalories" placeholder="">
+                                </div>
+                            </li>
+                            <li id="3" class="family-member list-group-item">
+                                <h3 class="h6 member-name">{{Name}}</h3>
+                                <!--<p><label>Gender</label> <span class="member-gender"></span></p>
+                                <p><label>Age</label> <span class="member-age"></span></p>
+                                <p><label>Weight</label> <span class="member-weight"></span></p>
+                                <p><label>Height</label> <span class="member-height"></span></p>
+                                <p><label>BMI</label> <span class="member-bmi"></span></p>
+                                <p><label>Daily Calories</label> <span class="member-calories"></span></p>-->
+                                <div class="form-group">
+                                    <label for="memberName">Name</label>
+                                    <input type="text" class="form-control" id="memberName" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select class="form-control" name="memberGender">
+                                        <option value="" selected></option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberAge">Age</label>
+                                    <input type="text" class="form-control" id="memberAge" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberWeight">Weight</label>
+                                    <input type="text" class="form-control" id="memberWeight" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberHeight">Height</label>
+                                    <input type="text" class="form-control" id="memberHeight" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberBMI">BMI</label>
+                                    <input type="text" class="form-control" id="memberBMI" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberCalories">Daily Calories</label>
+                                    <input type="text" class="form-control" id="memberCalories" placeholder="">
+                                </div>
+                            </li>
+                            <li id="4" class="family-member list-group-item">
+                                <h3 class="h6 member-name">{{Name}}</h3>
+                                <!--<p><label>Gender</label> <span class="member-gender"></span></p>
+                                <p><label>Age</label> <span class="member-age"></span></p>
+                                <p><label>Weight</label> <span class="member-weight"></span></p>
+                                <p><label>Height</label> <span class="member-height"></span></p>
+                                <p><label>BMI</label> <span class="member-bmi"></span></p>
+                                <p><label>Daily Calories</label> <span class="member-calories"></span></p>-->
+                                <div class="form-group">
+                                    <label for="memberName">Name</label>
+                                    <input type="text" class="form-control" id="memberName" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select class="form-control" name="memberGender">
+                                        <option value="" selected></option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberAge">Age</label>
+                                    <input type="text" class="form-control" id="memberAge" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberWeight">Weight</label>
+                                    <input type="text" class="form-control" id="memberWeight" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberHeight">Height</label>
+                                    <input type="text" class="form-control" id="memberHeight" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberBMI">BMI</label>
+                                    <input type="text" class="form-control" id="memberBMI" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberCalories">Daily Calories</label>
+                                    <input type="text" class="form-control" id="memberCalories" placeholder="">
+                                </div>
+                            </li>
+                            <li id="5" class="family-member list-group-item">
+                                <h3 class="h6 member-name">{{Name}}</h3>
+                                <!--<!--<p><label>Gender</label> <span class="member-gender"></span></p>
+                                <p><label>Age</label> <span class="member-age"></span></p>
+                                <p><label>Weight</label> <span class="member-weight"></span></p>
+                                <p><label>Height</label> <span class="member-height"></span></p>
+                                <p><label>BMI</label> <span class="member-bmi"></span></p>
+                                <p><label>Daily Calories</label> <span class="member-calories"></span></p>-->
+                                <div class="form-group">
+                                    <label for="memberName">Name</label>
+                                    <input type="text" class="form-control" id="memberName" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select class="form-control" name="memberGender">
+                                        <option value="" selected></option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberAge">Age</label>
+                                    <input type="text" class="form-control" id="memberAge" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberWeight">Weight</label>
+                                    <input type="text" class="form-control" id="memberWeight" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberHeight">Height</label>
+                                    <input type="text" class="form-control" id="memberHeight" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberBMI">BMI</label>
+                                    <input type="text" class="form-control" id="memberBMI" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="memberCalories">Daily Calories</label>
+                                    <input type="text" class="form-control" id="memberCalories" placeholder="">
+                                </div>
+                            </li>
+                        </ul>
+                         <button type="submit" class="btn btn-primary btn-block save_button">Save Changes</button>
+                    </form>
+                </div>
             </div>
-
 
         </div> <!-- /profiles container -->
 
@@ -99,11 +314,13 @@
 
             <hr>
 
-            <footer>
-                <p>&copy; MyNutriCart 2015</p>
-            </footer>
         </div> <!-- /about container -->
-     </div>
+
+     </div><!-- /views-list container -->
+
+    <footer>
+        <p>&copy; MyNutriCart 2015</p>
+    </footer>
 
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 

@@ -58,3 +58,20 @@ body {
         border: none;
     }
 }
+
+/* App Views */
+.view {
+    display:none;
+}
+.view.active {
+    display: block !important;
+}
+
+/* CSS Fade Effect */
+
+.fade {
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}

@@ -19,6 +19,17 @@ $(document).ready(function(){
         }
     })
 
-    /* Off-Canvas Sliding Menu JavaScript */
+   /* Handle Navigation */
+    $("a.navmenu-brand, .navmenu-nav li a").click(function(){
+        var target = $(this).attr("href");
+        console.log(target);
+        $("#views-list > .view").each(function(){
+            if(("#" + $(this).attr("id")) !== target) {
+                $(this).removeClass("active");
+            } else {
+                $(this).addClass("active");
+            }
+        })
+    })
 
 })
