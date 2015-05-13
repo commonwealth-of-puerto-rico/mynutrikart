@@ -1,0 +1,60 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+/* Device-Width / Viewport-Width Hack for IE and Windows Phone 8 */
+
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+
+-ms-@viewport {
+    initial-scale: 1;
+    zoom: 1;
+    min-zoom: 1;
+    max-zoom: 3;
+    user-zoom: fixed;
+}
+@viewport {
+    initial-scale: 1;
+    zoom: 1;
+    min-zoom: 1;
+    max-zoom: 3;
+    user-zoom: fixed;
+}
+
+/* Sliding Off-Canvas menu CSS */
+html, body {
+    height: 100%;
+}
+
+body {
+    padding: 50px 0 0 0;
+}
+
+.navbar-toggle {
+    float: left;
+    margin-left: 15px;
+}
+
+@media (min-width: 0) {
+    .navbar-toggle {
+        display: block; /* force showing the toggle */
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        padding: 0;
+    }
+    .navbar {
+        right: auto;
+        background: none;
+        border: none;
+    }
+}
