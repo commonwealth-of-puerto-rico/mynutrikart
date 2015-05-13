@@ -37,7 +37,7 @@ def calcs():
     # finally:
     #     if db:
     #         db.close()
-    return query[:-3]
+    return "Success"
 
 if __name__ == "__main__":
     app.run()
