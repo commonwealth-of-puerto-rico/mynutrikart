@@ -24,10 +24,13 @@ $(document).ready(function(){
         var target = $(this).attr("href");
         console.log(target);
         $("#views-list > .view").each(function(){
+            var id = "#" + $(this).attr("id");
             if(("#" + $(this).attr("id")) !== target) {
                 $(this).removeClass("active");
+                $("a[href="+id+"].navmenu-brand,.navmenu-nav li a[href="+id+"]").parent().removeClass("active");
             } else {
                 $(this).addClass("active");
+                $("a[href="+id+"].navmenu-brand,.navmenu-nav li a[href="+id+"]").parent().addClass("active");
             }
         })
     })
